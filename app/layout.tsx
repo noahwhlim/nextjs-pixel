@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from "next/link"
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,22 @@ const header = (
   </header>
 )
 
+const footer = (
+  <footer className='px-36 py-6 text-center content-center text-slate-400 bg-gray-300'>
+    <div className='border-t border-black pt-5'>
+      <h3>Developed by Noah</h3>
+      <div className='justify-center flex flex-row m-2'>
+        <Link href="https://www.github.com/noahwhlim" className='mx-3'>
+          <Image src="/github.svg" alt="github" width={25} height={25}/>
+        </Link>
+        <Link href="https://www.linkedin.com/in/noahwhlim">
+          <Image src="/linkedin.svg" alt="linkedin" width={25} height={25}/>
+        </Link>
+      </div>
+    </div>
+  </footer>
+)
+
 export default function RootLayout({
   children,
 }: {
@@ -33,6 +50,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {header}
         {children}
+        {footer}
       </body>
     </html>
   )
